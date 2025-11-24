@@ -4,8 +4,8 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Servir la carpeta src/ (imatges, CSS, etc.)
-app.use(express.static(path.join(__dirname, "src")));
+// Serveix tota la carpeta 'src' com a arrel web
+app.use(express.static(__dirname));
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
@@ -14,5 +14,3 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor funcionant al port ${PORT}`);
 });
-
-
